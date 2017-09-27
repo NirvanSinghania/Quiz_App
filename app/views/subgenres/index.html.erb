@@ -1,0 +1,37 @@
+<h1>All SubGenres </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th >Name</th>
+            <th > Link to Subgenres</th>
+            <th> Link to leaderboard</th>
+            <% if current_user and current_user.isadmin? %>
+            <th></th>
+            <th></th>
+            <% end %>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @subgenres.each do |subgenre| %>
+            <tr>
+                <td><%= subgenre.name %></td>
+                <td><%= link_to 'Show', subgenre %></td>
+                <td><%= link_to 'Go' , '/leaderboard/subgenres/'+subgenre.id.to_s %></td>
+
+                <% if current_user and current_user.isadmin? %>
+                <td><%= link_to "Delete", subgenre, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+                </td>
+                <td><%= link_to "Update",edit_subgenre_path(subgenre.id) %>
+                </td>
+                <% end %>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>
+<%= link_to 'Back', genres_path %>
+

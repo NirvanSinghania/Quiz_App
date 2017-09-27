@@ -1,0 +1,60 @@
+<% if notice %>
+<p id = "notice">
+<%= notice %>
+</p>
+<% end %>
+<p>
+  <h1>
+    <%= @user.name %>
+</h1>
+
+<p>
+  <strong>Email:</strong>
+    <%= @user.email %>
+</p>
+
+<%= link_to 'Back', genres_path %>
+<table>
+    <thead>
+        <tr>
+            <th>Quiz </th>
+            <th>Status</th>
+            <th> Score </th>
+            <th> Go to quiz </th>
+             <% if current_user and current_user.isadmin? %>
+            <th>Delete</th>
+            <% end %>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @quizzes.each_with_index do |elem ,index| %>
+            <tr>
+                <td><%= elem.name %></td>
+       
+                <% if  @arr[index] == 0%>
+                <td>Not attempted</td>
+                <td> - </td>
+                <% end %>
+                <% if  @arr[index] < 0 %>
+                <td> Incomplete </td>
+                <td><%= -@arr[index]-1 %></td>
+                <% end %>
+                <% if  @arr[index] > 0 %>
+                <td> Complete </td>
+                <td><%= @arr[index] %></td>
+                <% end %>
+                <td><%= link_to 'Go' , quizz_path(elem.id)  %></td> 
+                <% if current_user and current_user.isadmin? %>
+
+                 <td><%= link_to "delete", elem , method: :delete,
+                                  data: { confirm: "You sure?" } %>
+                <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+

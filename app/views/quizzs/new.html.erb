@@ -1,0 +1,35 @@
+<% provide(:title, 'Create Quiz') %>
+<h1>Create Quiz</h1>
+
+<% if notice %>
+<p >
+<%= notice %>
+</p>
+<% end %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+ 
+
+      <%= form_for(@quizz) do |f| %>
+      
+
+      <%= f.label :name%>
+      <%= f.text_field :name, class: 'form-control' %>
+
+     <%= f.label :subgenre_id%>
+       <%= f.number_field :subgenre_id, class: 'form-control' %>
+
+      
+      
+      <%= f.label :numquestions%>
+      <%= f.number_field :numquestions, class: 'form-control' %>
+
+
+      <%= f.submit "Create Quiz", class: "btn btn-primary" %>
+      
+       <p><%= link_to "Go back to Home" , root_path %></p>
+    <% end %>
+      
+       
+  </div>

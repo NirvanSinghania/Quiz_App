@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  numquestions: 1
+  subgenre: one
+
+two:
+  name: MyString
+  numquestions: 1
+  subgenre: two

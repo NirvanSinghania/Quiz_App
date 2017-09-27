@@ -1,0 +1,54 @@
+<% if notice %>
+<p id = "notice">
+<%= notice %>
+</p>
+<% end %>
+<h1>Score:  
+<%= @score %>
+</h1>
+<%= form_for(@question , :url => "/play/update/"+@question.quizz_id.to_s ) do |f| %>
+<p style="font-size: 20px">
+  <strong>Question :</strong>
+    <%= @question.content %>
+</p >
+<% if @question.qtype==3 %>
+<%= image_tag(@question.id.to_s+ ".png" , width:"30%" , height:"20%")%>
+<% end %>
+
+<div style="font-size: 16px">
+
+    <div>
+   <%= f.check_box :optionA , {}, "A", ""%> 
+    <%= f.label "A " %> 
+   <%= @question.optionA %>
+    <br/><br/><br/>
+    </div>
+
+    <div>
+    
+    <%= f.check_box :optionB , {} ,"B" , ""%> 
+    <%= f.label "B  " %> 
+    <%= @question.optionB %>
+    <br/><br/><br/>
+
+    <div>
+    <%= f.check_box :optionC  ,{}, "C" , ""%> 
+     <%= f.label "C  " %> 
+    <%= @question.optionC %>
+    <br/><br/><br/>
+
+    </div>
+
+    <div>
+    <%= f.check_box :optionD , {} ,"D" , ""%> 
+     <%= f.label "D  " %> 
+    <%= @question.optionD %>
+    <br/><br/><br/>
+
+    </div>
+
+<%= f.submit "Submit Answer", class: "btn btn-primary" %>
+</div>
+
+
+<% end %>

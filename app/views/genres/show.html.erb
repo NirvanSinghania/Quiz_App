@@ -1,0 +1,32 @@
+<% if notice %>
+<p id = "notice">
+<%= notice %>
+</p>
+<% end %>
+
+<p>
+  <h1>
+    <%= @genre.name %>
+    </h1>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Subgenre</th>
+            <th>Link to subgenre</th>
+            <th> Link to leaderboard</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @genre.subgenres.each do |subgenre| %>
+            <tr>
+                <td><%= subgenre.name %></td>
+                <td><%= link_to 'Show', subgenre %></td>
+                <td><%= link_to 'Go' , '/leaderboard/subgenres/'+subgenre.id.to_s %></td> 
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to 'Back', genres_path %>

@@ -1,0 +1,31 @@
+<% if notice %>
+<p id = "notice">
+<%= notice %>
+</p>
+<% end %>
+
+<p>
+  <h1>
+    <%= @subgenre.name %>
+    </h1>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Quiz</th>
+            <th> Link to quiz</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @subgenre.quizzs.each do |quiz| %>
+            <tr>
+                <td><%= quiz.name %></td>
+                <td><%= link_to 'Show', quiz %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to 'Back', subgenres_path %>
+

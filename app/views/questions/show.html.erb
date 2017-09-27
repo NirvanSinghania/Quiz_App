@@ -1,0 +1,33 @@
+<% if notice %>
+<p id = "notice">
+<%= notice %>
+</p>
+<% end %>
+<p>
+  <strong>Question :</strong>
+    <%= @question.content %>
+</p>
+
+<div>
+    
+    <%= @question.optionA %>
+    <br/>
+
+   
+    <%= @question.optionB %>
+    <br/>
+
+    
+    <%= @question.optionC %>
+    <br/>
+
+    <%= @question.optionD %>
+    <br/>
+
+</div>
+<%= link_to 'Back', questions_path %>
+
+
+
+
+

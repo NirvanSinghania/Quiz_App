@@ -1,2 +1,5 @@
-# Quiz_App
-A state-restoring quiz app using Ruby on Rails
+# README
+ 
+Quiz_App
+
+A state-restoring app using Ruby on Rails

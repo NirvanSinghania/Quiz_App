@@ -1,0 +1,31 @@
+<br/>
+<h1>Leaderboard for Genre </h1>
+<% if notice %>
+<p id = "notice">
+<%= notice %>
+</p>
+<% end %>
+<br/>
+<h3 class="center"> <%= @genre.name %>
+</h3>
+<br/>
+<br/>
+<table>
+    <thead>
+        <tr>
+            <th >User</th>
+            <th > Score </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @genrescs.each do |genresc| %>
+            <tr>
+                <td><%= genresc.user.name %></td>
+                <td><%= genresc.score %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>

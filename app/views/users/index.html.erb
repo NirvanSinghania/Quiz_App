@@ -1,0 +1,32 @@
+<h1>Users</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Details</th>
+            <% if current_user and current_user.isadmin? %>
+            <th>Delete</th>
+            <% end %>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @users.each do |user| %>
+            <tr>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= link_to 'Show', user %></td>
+                <% if current_user and current_user.isadmin? %>
+                <td><%= link_to "delete", user , method: :delete,
+                                  data: { confirm: "You sure?" } %>
+                </td>
+                <% end %>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>
+

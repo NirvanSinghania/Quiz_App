@@ -1,0 +1,31 @@
+<br/>
+<h1>Leaderboard for Subgenre </h1>
+<% if notice %>
+<p id = "notice">
+<%= notice %>
+</p>
+<% end %>
+<br/>
+<h3 class="center"> <%= @subgenre.name %>
+</h3>
+<br/>
+<br/>
+<table>
+    <thead>
+        <tr>
+            <th >User</th>
+            <th > Score </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @subgenrescs.each do |subgenresc| %>
+            <tr>
+                <td><%= subgenresc.user.name %></td>
+                <td><%= subgenresc.score %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>
